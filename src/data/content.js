@@ -118,7 +118,7 @@ export const helpfulLinks = [
   { label: 'About', to: '/about' },
   { label: 'Services', to: '/services' },
   { label: 'Projects', to: '/projects' },
-  { label: 'Videos', to: '/videos' },
+  { label: 'YouTube Gallery', to: '/youtube' },
   { label: 'News', to: '/blog' },
   { label: 'Contact', to: '/contact' },
 ];
@@ -130,3 +130,11 @@ export const contact = {
   emails: ['mule.hemant@gmail.com', 'info@wpart.co.in'],
   hours: 'Mon - Sat, 10:00 AM - 7:00 PM',
 };
+
+// YouTube gallery (home page). `start` is in seconds.
+export const youtubeChannel = 'https://www.youtube.com/@mulehemant/videos';
+export const youtubeVideos = [
+  { id: 'mmF9E69LBOM', start: 376, title: 'Advanced Custom Fields', desc: 'How to update content in WordPress, including the footer section.', tag: 'WordPress' },
+  { id: 'g593_i84JE8', start: 0, title: 'Photoshop Tutorials', desc: 'Photoshop for beginners: the Marquee tool and creating a website with Photoshop.', tag: 'Design' },
+  { id: 'qMaPQHUWBdI', start: 16, title: 'Create Blocks In Shopify', desc: 'Shopify store complete setup and development, part 4: creating blocks.', tag: 'Shopify' },
+];

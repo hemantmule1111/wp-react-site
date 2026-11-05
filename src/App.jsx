@@ -7,7 +7,7 @@ import About from './pages/About.jsx';
 import ServicesPage from './pages/ServicesPage.jsx';
 import ServiceDetail from './pages/ServiceDetail.jsx';
 import ProjectsPage from './pages/ProjectsPage.jsx';
-import VideosPage from './pages/VideosPage.jsx';
+import YoutubePage from './pages/YoutubePage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import BlogList from './pages/BlogList.jsx';
 import BlogPost from './pages/BlogPost.jsx';
@@ -33,7 +33,8 @@ export default function App() {
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/videos" element={<VideosPage />} />
+          <Route path="/videos" element={<YoutubePage />} />
+          <Route path="/youtube" element={<YoutubePage />} />
           <Route path="/blog" element={<BlogList />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contact" element={<ContactPage />} />

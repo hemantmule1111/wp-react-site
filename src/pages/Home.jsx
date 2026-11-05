@@ -6,6 +6,7 @@ import ProcessTimeline from '../components/ProcessTimeline.jsx';
 import TechMarquee from '../components/TechMarquee.jsx';
 import Promo from '../components/Promo.jsx';
 import LatestPosts from '../components/LatestPosts.jsx';
+import YoutubeGallery from '../components/YoutubeGallery.jsx';
 import CtaBand from '../components/CtaBand.jsx';
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <ProcessTimeline />
       <TechMarquee />
       <Promo />
+      <YoutubeGallery />
       <LatestPosts />
       <CtaBand />
     </>
