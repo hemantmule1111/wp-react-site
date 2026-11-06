@@ -1,3 +1,5 @@
+import { useSeo } from '../lib/seo.js';
+import { pageSeo } from '../data/seo.js';
 import Hero from '../components/Hero.jsx';
 import StatsBand from '../components/StatsBand.jsx';
 import Services from '../components/Services.jsx';

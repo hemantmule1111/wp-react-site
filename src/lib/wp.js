@@ -44,5 +44,5 @@ export async function sendContact(payload) {
     body: JSON.stringify(payload),
   });
   const data = await res.json().catch(() => ({}));
-  if (!res.ok || !data.ok) throw new Error(data.message || 'Could not send your message. Please try again.');
+  if (!res.ok || !data.ok) throw new Error(data.message || `Could not send your message (server replied ${res.status}). Please try again.`);
 }

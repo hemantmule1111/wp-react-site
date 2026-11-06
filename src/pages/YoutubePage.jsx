@@ -1,3 +1,5 @@
+import { useSeo } from '../lib/seo.js';
+import { pageSeo } from '../data/seo.js';
 import { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader.jsx';

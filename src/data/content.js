@@ -119,7 +119,7 @@ export const helpfulLinks = [
   { label: 'Services', to: '/services' },
   { label: 'Projects', to: '/projects' },
   { label: 'YouTube Gallery', to: '/youtube' },
-  { label: 'News', to: '/blog' },
+  { label: 'Latest News', to: '/blog' },
   { label: 'Contact', to: '/contact' },
 ];
 

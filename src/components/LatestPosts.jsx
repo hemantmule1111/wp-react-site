@@ -10,7 +10,7 @@ export default function LatestPosts() {
   const hasPosts = data && data.length > 0;
 
   return (
-    <Section id="articles" eyebrow="news" title="Latest Articles">
+    <Section id="articles" eyebrow="news" title="Latest News">
       {loading && <p className="font-mono text-sm">loading posts…</p>}
       {hasPosts && (
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

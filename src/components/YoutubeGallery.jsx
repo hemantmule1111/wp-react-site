@@ -26,6 +26,7 @@ export default function YoutubeGallery() {
   };
 
   return (
+    <div className="border-y border-violet-100 bg-gradient-to-br from-violet-100/80 via-fuchsia-50 to-orange-50 py-6">
     <Section id="youtube" eyebrow="youtube gallery" title="Watch & Learn">
       <div className="grid gap-6 lg:grid-cols-[1.7fr_1fr]">
         {/* Featured player */}
@@ -121,5 +122,6 @@ export default function YoutubeGallery() {
         </Reveal>
       </div>
     </Section>
+    </div>
   );
 }

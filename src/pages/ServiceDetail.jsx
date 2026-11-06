@@ -5,6 +5,8 @@ import Faq from '../components/Faq.jsx';
 import CtaBand from '../components/CtaBand.jsx';
 import ServiceArt from '../components/ServiceArt.jsx';
 import NotFound from './NotFound.jsx';
+import { useSeo } from '../lib/seo.js';
+import { serviceMeta, serviceJsonLd } from '../data/seo.js';
 import { services, bySlug } from '../data/services.js';
 import { processSteps } from '../data/process.js';
 
@@ -23,6 +25,11 @@ function Block({ eyebrow, title, children }) {
 export default function ServiceDetail() {
   const { slug } = useParams();
   const service = bySlug(slug);
+  useSeo(
+    service
+      ? { ...serviceMeta(service), path: `/services/${service.slug}`, jsonLd: serviceJsonLd(service) }
+      : { title: 'Service not found | WPArt', path: '/services', noindex: true }
+  );
   if (!service) return <NotFound />;
 
   const i = services.indexOf(service);
@@ -101,7 +108,7 @@ export default function ServiceDetail() {
             <ul className="grid gap-4 sm:grid-cols-2">
               {service.features.map((f, n) => (
                 <li key={f} className="card flex items-start gap-4 !p-5">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-fuchsia-500 font-mono text-sm font-bold text-white shadow-md shadow-fuchsia-500/30">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#fb9133] font-mono text-sm font-bold text-white shadow-md shadow-orange-400/30">
                     {String(n + 1).padStart(2, '0')}
                   </span>
                   <span className="pt-1.5 text-sm font-medium text-slate-800">{f}</span>
@@ -137,7 +144,7 @@ export default function ServiceDetail() {
             <ol className="relative space-y-6 border-l-2 border-dashed border-fuchsia-200 pl-8">
               {processSteps.map((s) => (
                 <li key={s.n} className="relative">
-                  <span className="absolute -left-[50px] flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-violet-600 via-fuchsia-500 to-orange-400 text-lg shadow-lg shadow-fuchsia-500/30">{s.icon}</span>
+                  <span className="absolute -left-[50px] flex h-10 w-10 items-center justify-center rounded-full bg-white text-lg shadow-lg shadow-fuchsia-500/30">{s.icon}</span>
                   <h3 className="font-semibold text-slate-900"><span className="gradient-text font-mono">{s.n}</span> {s.title}</h3>
                   <p className="mt-1 text-sm leading-relaxed">{s.text}</p>
                 </li>
@@ -166,11 +173,11 @@ export default function ServiceDetail() {
         </article>
 
         <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
-          <div className="rounded-2xl bg-gradient-to-br from-violet-600 via-fuchsia-500 to-orange-400 p-6 text-white shadow-xl shadow-fuchsia-500/30">
+          <div className="rounded-2xl border border-violet-100 bg-gradient-to-br from-violet-100/80 via-fuchsia-50 to-orange-50 p-6 shadow-xl shadow-fuchsia-500/10">
             <p className="text-3xl">{service.icon}</p>
-            <h3 className="mt-2 text-xl font-bold text-white">Need {service.title}?</h3>
-            <p className="mt-2 text-sm text-white/90">Tell us about your project and get a free consultation and quote.</p>
-            <Link to="/contact" className="btn mt-5 bg-white text-fuchsia-600 hover:bg-fuchsia-50">Get a free quote</Link>
+            <h3 className="mt-2 text-xl font-bold text-slate-900">Need {service.title}?</h3>
+            <p className="mt-2 text-sm">Tell us about your project and get a free consultation and quote.</p>
+            <Link to="/contact" className="btn-primary mt-5">Get a free quote</Link>
           </div>
 
           <div className="rounded-2xl border border-line bg-white p-5 shadow-sm">

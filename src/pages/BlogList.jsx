@@ -1,3 +1,5 @@
+import { useSeo } from '../lib/seo.js';
+import { pageSeo } from '../data/seo.js';
 import { useState } from 'react';
 import PostCard from '../components/PostCard.jsx';
 import useAsync from '../lib/useAsync.js';
@@ -6,6 +8,7 @@ import { getPosts } from '../lib/wp.js';
 const PER_PAGE = 9;
 
 export default function BlogList() {
+  useSeo({ ...pageSeo['/blog'], path: '/blog' });
   const [page, setPage] = useState(1);
   const { data, error, loading } = useAsync(() => getPosts({ page, perPage: PER_PAGE }), [page]);
 

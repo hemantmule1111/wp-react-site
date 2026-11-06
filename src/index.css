@@ -13,7 +13,7 @@ body { @apply bg-ink text-slate-600 font-sans antialiased; }
   .btn-ghost { @apply btn border-2 border-fuchsia-200 text-slate-700 hover:border-[#ff8c00] hover:bg-orange-50; }
   .gradient-text { @apply bg-gradient-to-r from-violet-600 via-fuchsia-500 to-orange-400 bg-clip-text text-transparent; }
   .card { @apply relative overflow-hidden rounded-2xl border border-line bg-panel p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-fuchsia-500/10; }
-  .card::before { content: ''; @apply absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-violet-600 via-fuchsia-500 to-orange-400; }
+  .card::before { content: ''; @apply absolute inset-x-0 top-0 h-1 bg-[#ff8c00]; }
 }
 
 /* Styles for WordPress post HTML */

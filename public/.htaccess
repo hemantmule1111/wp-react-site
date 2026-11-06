@@ -1,8 +1,40 @@
-# Apache: send all /en/* routes to index.html (React Router)
+# Apache config for https://wpart.co.in/en/ (React Router + SEO)
+
+# ---- Compression ----
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript application/json image/svg+xml application/xml text/xml
+</IfModule>
+
+# ---- Browser caching: hashed assets can be cached for a year, HTML never ----
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ---- Routing ----
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /en/
   RewriteRule ^index\.html$ - [L]
+
+  # Pre-rendered pages (about.html, services/website-development.html, ...) so crawlers get each page's own
+  # title, description and social tags. /en/about is served from about.html.
+  RewriteCond %{DOCUMENT_ROOT}/en/$1.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+
+  # Everything else is handled by React Router
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /en/index.html [L]
