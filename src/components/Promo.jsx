@@ -19,7 +19,7 @@ export default function Promo() {
             <div className="text-center md:text-right">
               <p className="gradient-text text-5xl font-extrabold">{promo.price}</p>
               <p className="mb-5 font-mono text-sm">{promo.per}</p>
-              <Link to="/contact" className="btn-primary">{promo.cta}</Link>
+              <Link to="/contact#contact" className="btn-primary">{promo.cta}</Link>
             </div>
           </div>
         </Reveal>

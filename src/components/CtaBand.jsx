@@ -11,7 +11,7 @@ export default function CtaBand() {
               <h2 className="text-xl font-bold sm:text-2xl">Have a project in mind?</h2>
               <p className="mt-1 text-slate-600">Let's build great software together.</p>
             </div>
-            <Link to="/contact" className="btn-primary shrink-0">Contact us</Link>
+            <Link to="/contact#contact" className="btn-primary shrink-0">Contact us</Link>
           </div>
         </Reveal>
       </div>

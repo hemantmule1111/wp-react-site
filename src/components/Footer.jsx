@@ -123,7 +123,7 @@ export default function Footer() {
             </li>
             <li className="flex gap-3"><span aria-hidden="true">🕒</span><span>{contact.hours}</span></li>
           </ul>
-          <Link to="/contact" className="btn-primary mt-5">Get a free quote</Link>
+          <Link to="/contact#contact" className="btn-primary mt-5">Get a free quote</Link>
         </div>
       </div>
 

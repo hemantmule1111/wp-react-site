@@ -64,7 +64,7 @@ export default function Hero() {
               <p className="mt-4 max-w-xl border-l-4 border-fuchsia-500 pl-4 text-base italic lg:text-[clamp(1rem,1.4vw,1.125rem)]">“{slide.text}”</p>
               <div className="mt-6 flex flex-wrap gap-4">
                 <Link to={slide.cta.to} className="btn-primary">{slide.cta.label}</Link>
-                <Link to="/contact" className="btn-ghost">Contact us</Link>
+                <Link to="/contact#contact" className="btn-ghost">Contact us</Link>
               </div>
             </div>
 

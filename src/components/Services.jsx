@@ -33,8 +33,8 @@ export default function Services({ limit, showFilter = false }) {
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {list.map((s) => (
           <Reveal key={s.slug}>
-            <Link to={`/services/${s.slug}`} className="card group flex h-full flex-col !p-0">
-              <div className="relative h-40 overflow-hidden">
+            <div className="card group flex h-full flex-col !p-0">
+              <Link to={`/services/${s.slug}`} className="relative block h-40 overflow-hidden" aria-label={s.title}>
                 {s.image ? (
                   <img src={s.image} alt={s.title} loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-110" />
                 ) : (
@@ -46,20 +46,31 @@ export default function Services({ limit, showFilter = false }) {
                     {s.category}
                   </span>
                 </div>
-              </div>
+              </Link>
               <div className="flex flex-1 flex-col p-5">
-                <h3 className="font-semibold text-slate-900">{s.icon} {s.title}</h3>
+                <h3 className="font-semibold text-slate-900">
+                  <Link to={`/services/${s.slug}`} className="hover:text-fuchsia-600">{s.icon} {s.title}</Link>
+                </h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed">{s.text}</p>
-                <span className="gradient-text mt-4 text-sm font-semibold">Learn more →</span>
+                <div className="mt-4 flex items-center justify-between gap-2">
+                  <Link to={`/services/${s.slug}`} className="gradient-text text-sm font-semibold">Learn more →</Link>
+                  <Link
+                    to="/contact#contact"
+                    state={{ service: s.title }}
+                    className="rounded-full bg-[#ff8c00] px-3.5 py-1.5 text-xs font-semibold text-white shadow-sm shadow-orange-500/30 transition hover:-translate-y-0.5 hover:bg-[#e67e00]"
+                  >
+                    Get a free quote
+                  </Link>
+                </div>
               </div>
-            </Link>
+            </div>
           </Reveal>
         ))}
       </div>
 
       <div className="mt-12 flex flex-wrap justify-center gap-4">
         {limit && <Link to="/services" className="btn-ghost">View all {services.length} services</Link>}
-        <Link to="/contact" className="btn-primary">Get a free quote</Link>
+        <Link to="/contact#contact" className="btn-primary">Get a free quote</Link>
       </div>
     </Section>
   );

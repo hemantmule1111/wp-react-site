@@ -16,11 +16,18 @@ const list = [
   { name: 'Every Day Chemist 247', image: 'project16', text: ACF, url: 'https://www.everydaychemist247.com/', cta: 'Visit Website' },
   { name: 'Blink Fuel', image: 'project17', text: ELEMENTOR, url: 'https://blinkfuel.com/', cta: 'Go to Site' },
   { name: 'SRC Doors', image: 'project4', text: ELEMENTOR, url: 'https://srcdoors.com/', cta: 'Explore Site' },
-  { name: 'Metal Fabrication Limited', image: 'project18', text: ACF, url: 'https://dol-jac.com/sp/', cta: 'Go to Site' },
   { name: 'Kop Armsapts', image: 'project19', text: ELEMENTOR, url: 'https://koparmsapts.com/', cta: 'View Website' },
   { name: 'Industri Designs', image: 'project22', text: ELEMENTOR, url: 'https://industridesigns.com/', cta: 'Browse Now' },
   { name: 'Highwings Realtors', image: 'project21', text: ELEMENTOR },
-  ...[3, 5, 6, 8, 9, 10, 20, 23, 24, 25].map((n) => ({ name: `Project ${n}`, image: `project${n}`, text: ELEMENTOR })),
+  { name: 'Skills2Zen', image: 'project6', text: ELEMENTOR, url: 'https://skills2zen.com/', cta: 'Visit Website' },
+  { name: 'Southwest Propane', image: 'project3', text: ELEMENTOR, url: 'https://southwestpropane.org/', cta: 'Visit Website' },
+  { name: 'Brainstorm International', image: 'project10', text: ELEMENTOR, url: 'https://www.brainstorminternational.co.in/', cta: 'Visit Website' },
+  { name: 'Printery Dubai', image: 'project20', text: ELEMENTOR, url: 'https://printerydubai.com/', cta: 'Visit Website' },
+  { name: 'VK Web', image: 'project23', text: ELEMENTOR, url: 'https://vkweb.fr/', cta: 'Visit Website' },
+  { name: 'Barefoot Bushcraft', image: 'project25', text: ELEMENTOR, url: 'https://barefootbushcraft.com/', cta: 'Visit Website' },
+  { name: 'Jyoti Labs', image: 'project5', text: ELEMENTOR, url: 'https://www.jyothylabs.com/', cta: 'Visit Website' },
+  { name: 'Tricona Services', image: 'project8', text: ELEMENTOR, url: 'https://tricona.ca/', cta: 'Visit Website' },
+  { name: 'Unique Wedding', image: 'project9', text: ELEMENTOR, url: 'https://www.u-wed.com/', cta: 'Visit Website' },
 ];
 
 export const portfolio = list.map((p) => ({ ...p, image: `${IMG}${p.image}-768x768.jpg` }));

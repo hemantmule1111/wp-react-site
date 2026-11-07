@@ -60,7 +60,7 @@ export default function ServiceDetail() {
             <h1 className="mt-4 text-4xl font-extrabold leading-tight text-slate-900 sm:text-5xl">{service.title}</h1>
             <p className="mt-4 max-w-xl text-lg">{service.tagline}</p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link to="/contact" className="btn-primary">Get a free quote</Link>
+              <Link to="/contact#contact" className="btn-primary">Get a free quote</Link>
               <a href="#details" className="btn-ghost bg-white/60">Explore details ↓</a>
             </div>
             <div className="mt-8 flex flex-wrap gap-2">
@@ -177,7 +177,7 @@ export default function ServiceDetail() {
             <p className="text-3xl">{service.icon}</p>
             <h3 className="mt-2 text-xl font-bold text-slate-900">Need {service.title}?</h3>
             <p className="mt-2 text-sm">Tell us about your project and get a free consultation and quote.</p>
-            <Link to="/contact" className="btn-primary mt-5">Get a free quote</Link>
+            <Link to="/contact#contact" className="btn-primary mt-5">Get a free quote</Link>
           </div>
 
           <div className="rounded-2xl border border-line bg-white p-5 shadow-sm">

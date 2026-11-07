@@ -36,7 +36,7 @@ export default function Navbar() {
               <NavLink key={l.label} to={l.to} end={l.to === '/'} className={linkClass}>{l.label}</NavLink>
             )
           )}
-          <Link to="/contact" className="btn-primary !py-2">Contact</Link>
+          <Link to="/contact#contact" className="btn-primary !py-2">Contact</Link>
         </nav>
         <button className="md:hidden text-2xl text-slate-900" onClick={() => setOpen(!open)} aria-label="Toggle menu">
           {open ? '✕' : '☰'}
@@ -47,7 +47,7 @@ export default function Navbar() {
           {links.map((l) => (
             <NavLink key={l.label} to={l.to} end={l.to === '/'} onClick={() => setOpen(false)} className={linkClass}>{l.label}</NavLink>
           ))}
-          <Link to="/contact" onClick={() => setOpen(false)} className="btn-primary w-fit">Contact</Link>
+          <Link to="/contact#contact" onClick={() => setOpen(false)} className="btn-primary w-fit">Contact</Link>
         </nav>
       )}
     </header>

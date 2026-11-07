@@ -46,7 +46,7 @@ export const heroSlides = [
     title: 'Beautiful Interfaces Built on',
     highlight: 'WordPress & React',
     text: 'Intuitive, user-friendly design with headless WordPress, Elementor and modern React for a flawless experience.',
-    cta: { label: 'Contact Us', to: '/contact' },
+    cta: { label: 'Contact Us', to: '/contact#contact' },
     code: [['<Hero', '', '', ''], ['  theme=', '"gradient"', '', ''], ['  cms=', '"WordPress"', '', ''], ['  ui=', '"React"', '', ''], ['/>', '', '', '']],
     file: 'Hero.jsx',
     image: homeImg('slider-103.png'),
@@ -120,7 +120,7 @@ export const helpfulLinks = [
   { label: 'Projects', to: '/projects' },
   { label: 'YouTube Gallery', to: '/youtube' },
   { label: 'Latest News', to: '/blog' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'Contact', to: '/contact#contact' },
 ];
 
 // Shown in the footer. Replace the placeholders with your real details.

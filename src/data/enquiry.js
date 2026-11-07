@@ -44,6 +44,19 @@ export const serviceCategories = [
   },
 ];
 
-export const budgets = ['Under $500', '$500 – $1,000', '$1,000 – $5,000', '$5,000 – $15,000', '$15,000+', 'Not sure yet'];
+// Budget ranges in both currencies (same order, roughly $1 = ₹80). Visitors in India see rupees by default.
+export const budgetsUSD = ['Under $200', '$200 – $500', '$500 – $1,000', '$1,000 – $5,000', '$5,000 – $15,000', '$15,000+', 'Not sure yet'];
+export const budgetsINR = ['Under ₹20,000', '₹20,000 – ₹40,000', '₹40,000 – ₹80,000', '₹80,000 – ₹4 Lakh', '₹4 Lakh – ₹12 Lakh', '₹12 Lakh+', 'Not sure yet'];
+
+// Best guess of the visitor's country from the browser's time zone / language (no tracking, no external service)
+export const detectCurrency = () => {
+  try {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    if (/^Asia\/(Kolkata|Calcutta)$/.test(tz) || /-IN\b/i.test(navigator.language || '')) return 'INR';
+  } catch {
+    /* fall through to dollars */
+  }
+  return 'USD';
+};
 export const timelines = ['As soon as possible', '1 – 3 months', '3 – 6 months', 'Just exploring'];
 export const allServices = serviceCategories.flatMap((c) => c.services.map((s) => s.title));

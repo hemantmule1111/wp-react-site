@@ -62,14 +62,13 @@ const stats = [
   { icon: 'globe', n: 550, suffix: '+', label: 'Websites Delivered', bg: 'from-blue-100 to-indigo-200', num: 'from-blue-600 to-cyan-500' },
   { icon: 'layers', n: 20, suffix: '+', label: 'Enterprise Projects', bg: 'from-cyan-100 to-sky-200', num: 'from-fuchsia-600 to-orange-500' },
   { icon: 'code', n: 10, suffix: '+', label: 'Software Services', bg: 'from-indigo-100 to-violet-200', num: 'from-indigo-600 to-sky-500' },
-  { icon: 'devices', n: 4, suffix: '', label: 'Platforms Supported', bg: 'from-sky-100 to-cyan-200', num: 'from-[#1d4ed8] to-[#0ea5e9]' },
   { icon: 'world', n: 15, suffix: '+', label: 'Countries Served', bg: 'from-blue-100 to-sky-200', num: 'from-orange-500 to-rose-500' },
 ];
 
 export default function StatsBand() {
   return (
     <section className="relative z-0">
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+      <div className="grid grid-cols-2 md:grid-cols-5 [&>*:last-child]:col-span-2 md:[&>*:last-child]:col-span-1">
         {stats.map((s) => (
           <div
             key={s.label}

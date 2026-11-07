@@ -14,10 +14,22 @@ import BlogPost from './pages/BlogPost.jsx';
 import NotFound from './pages/NotFound.jsx';
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [pathname]);
+    if (!hash) return;
+    // Jump to the element named in the URL (e.g. /contact#contact), waiting for the page to render it
+    const id = decodeURIComponent(hash.slice(1));
+    let tries = 0;
+    let timer;
+    const tick = () => {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ block: 'start' });
+      else if (tries++ < 20) timer = setTimeout(tick, 50);
+    };
+    tick();
+    return () => clearTimeout(timer);
+  }, [pathname, hash]);
   return null;
 }
 

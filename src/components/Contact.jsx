@@ -1,9 +1,10 @@
 import { useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Section from './Section.jsx';
 import { sendContact } from '../lib/wp.js';
 import { contact } from '../data/content.js';
-import { serviceCategories, budgets, timelines } from '../data/enquiry.js';
+import { serviceCategories, budgetsUSD, budgetsINR, detectCurrency, timelines, allServices } from '../data/enquiry.js';
 
 const empty = { services: [], budget: '', timeline: '', message: '', name: '', email: '', phone: '', website: '' }; // "website" is the honeypot
 const steps = ['Services', 'Project', 'You'];
@@ -28,8 +29,21 @@ function Pill({ active, onClick, children }) {
 }
 
 export default function Contact() {
-  const [form, setForm] = useState(empty);
+  const { state: nav } = useLocation();
+  // Arriving from a service card's "Get a free quote" button pre-selects that service
+  const [form, setForm] = useState(() => ({ ...empty, services: allServices.includes(nav?.service) ? [nav.service] : [] }));
   const [step, setStep] = useState(0);
+  const [currency, setCurrency] = useState(detectCurrency);
+  const budgets = currency === 'INR' ? budgetsINR : budgetsUSD;
+  // Switching currency keeps the same range selected
+  const switchCurrency = (c) => {
+    if (c === currency) return;
+    const from = currency === 'INR' ? budgetsINR : budgetsUSD;
+    const to = c === 'INR' ? budgetsINR : budgetsUSD;
+    const i = from.indexOf(form.budget);
+    setForm((f) => ({ ...f, budget: i >= 0 ? to[i] : '' }));
+    setCurrency(c);
+  };
   const [status, setStatus] = useState({ state: 'idle', message: '' });
   const openedAt = useRef(Date.now());
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
@@ -149,7 +163,15 @@ export default function Contact() {
                     <div className="space-y-5">
                       <h3 className="text-xl font-bold text-slate-900">Tell us about it</h3>
                       <div>
-                        <p className="mb-2 text-sm font-semibold text-slate-900">Estimated budget <span className="font-normal">(optional)</span></p>
+                        <div className="mb-2 flex items-center justify-between gap-3">
+                          <p className="text-sm font-semibold text-slate-900">Estimated budget <span className="font-normal">(optional)</span></p>
+                          <div className="inline-flex overflow-hidden rounded-full border border-line text-xs font-semibold" role="group" aria-label="Currency">
+                            {[['INR', '₹ INR'], ['USD', '$ USD']].map(([c, label]) => (
+                              <button key={c} type="button" onClick={() => switchCurrency(c)} aria-pressed={currency === c}
+                                className={`px-3 py-1 transition ${currency === c ? 'bg-[#ff8c00] text-white' : 'bg-white text-slate-600 hover:bg-orange-50'}`}>{label}</button>
+                            ))}
+                          </div>
+                        </div>
                         <div className="flex flex-wrap gap-2">
                           {budgets.map((b) => <Pill key={b} active={form.budget === b} onClick={() => pick('budget', b)}>{b}</Pill>)}
                         </div>
