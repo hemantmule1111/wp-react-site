@@ -8,7 +8,7 @@
 @ini_set( 'display_errors', '0' );
 ob_start();
 
-$TO   = 'mule.hemant@gmail.com';
+$TO   = 'contact@wpart.co.in';
 $FROM = 'noreply@wpart.co.in'; // must be an address on your own domain so mail isn't rejected
 
 header( 'Content-Type: application/json; charset=utf-8' );

@@ -6,6 +6,7 @@ import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import ServicesPage from './pages/ServicesPage.jsx';
 import ServiceDetail from './pages/ServiceDetail.jsx';
+import WorkPilotPage from './pages/WorkPilotPage.jsx';
 import ProjectsPage from './pages/ProjectsPage.jsx';
 import YoutubePage from './pages/YoutubePage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
@@ -44,6 +45,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
+          <Route path="/workpilot" element={<WorkPilotPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/videos" element={<YoutubePage />} />
           <Route path="/youtube" element={<YoutubePage />} />

@@ -46,3 +46,14 @@ export async function sendContact(payload) {
   const data = await res.json().catch(() => ({}));
   if (!res.ok || !data.ok) throw new Error(data.message || `Could not send your message (server replied ${res.status}). Please try again.`);
 }
+
+// WorkPilot plan popup: posts to public/plan-enquiry.php, which emails the request.
+export async function sendPlanEnquiry(payload) {
+  const res = await fetch(`${import.meta.env.BASE_URL}plan-enquiry.php`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok || !data.ok) throw new Error(data.message || `Could not send your request (server replied ${res.status}). Please try again.`);
+}
