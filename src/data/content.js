@@ -118,6 +118,7 @@ export const helpfulLinks = [
   { label: 'About', to: '/about' },
   { label: 'Services', to: '/services' },
   { label: 'Projects', to: '/projects' },
+  { label: 'HR Software', to: '/workpilot' },
   { label: 'YouTube Gallery', to: '/youtube' },
   { label: 'Latest News', to: '/blog' },
   { label: 'Contact', to: '/contact#contact' },
@@ -127,7 +128,7 @@ export const helpfulLinks = [
 export const contact = {
   address: 'B/6, Mangalmurti apartment chs. Service Road, Sector 30A, Vashi, Navi Mumbai, Maharashtra 400705',
   phone: '8097 370 227',
-  emails: ['mule.hemant@gmail.com', 'info@wpart.co.in'],
+  emails: ['contact@wpart.co.in', 'info@wpart.co.in'],
   hours: 'Mon - Sat, 10:00 AM - 7:00 PM',
 };
 

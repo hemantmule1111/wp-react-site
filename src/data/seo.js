@@ -31,6 +31,12 @@ export const pageSeo = {
     description: 'See how WPArt delivers successful WordPress websites and custom software projects for businesses.',
     priority: '0.7',
   },
+  '/workpilot': {
+    title: 'WorkPilot HR Software | Free for 5 Logins | WPArt',
+    description:
+      'WorkPilot is HR management software for attendance, leave, payroll and recruitment. Free for up to 5 email logins, then simple monthly plans.',
+    priority: '0.8',
+  },
   '/youtube': {
     title: 'YouTube Video Tutorials | WordPress, Shopify, Photoshop | WPArt',
     description:
